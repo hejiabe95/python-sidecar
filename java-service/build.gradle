@@ -1,0 +1,8 @@
+/* 子模块项目名，jar名 */
+archivesBaseName = 'java-service'
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix'
+}

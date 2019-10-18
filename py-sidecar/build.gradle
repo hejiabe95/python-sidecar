@@ -1,0 +1,7 @@
+/* 子模块项目名，jar名 */
+archivesBaseName = 'py-sidecar'
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-netflix-sidecar'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign'
+}

@@ -1,0 +1,7 @@
+/* 子模块项目名，jar名 */
+archivesBaseName = 'registry'
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+}
+
