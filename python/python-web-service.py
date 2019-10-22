@@ -1,10 +1,10 @@
-import algorithm
 import json
 import time
 from scheduler import scheduler
 from algorithm import algorithm_start
 from flask import Flask, Response, request
 app = Flask(__name__)
+
 @app.route("/health")
 def health():
     result = {'status': 'UP'}
@@ -16,7 +16,7 @@ def hello():
     return Response(json.dumps(result), mimetype='application/json')
 @app.route("/execute", methods= ['get','post'] )
 def excute():
-    scheduler.add_job(algorithm_start, args=['job_once', ], id='job_interval',replace_existing=True)
+    scheduler.add_job(algorithm_start, args=['job_once', ], id='job_once',replace_existing=True)
     result = 'success!'
     return Response(json.dumps(result), mimetype='application/json')
 
