@@ -32,5 +32,6 @@ def execute_algorithm_security(func,*args):
     func(args)
     rwlock.write_release()
 
+#设定原始算法程序
 def run(id):
     execute_algorithm_security(algorithm_start,id)
