@@ -1,7 +1,8 @@
-/* 子模块项目名，jar名 */
+///* 子模块项目名，jar名 */
 archivesBaseName = 'py-sidecar'
+apply from: project.file("gradle/docker.gradle")
 
 dependencies {
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-netflix-sidecar'
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-netflix-sidecar'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign'
 }

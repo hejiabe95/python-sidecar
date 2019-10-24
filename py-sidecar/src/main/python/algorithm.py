@@ -1,8 +1,9 @@
 import time
-import datetime
+from mylogger import logger
+
 
 def algorithm_start(id):
-    print('start:',id, '-->', datetime.datetime.now())
+    logger.info('start --> %s ' ,id[0])
     time.sleep(2)
-    print('finish:',id, '-->', datetime.datetime.now())
+    logger.info('finish --> %s ' ,id[0])
     return 'excute the algorithm.py'

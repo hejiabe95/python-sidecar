@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        maven {url "https://plugins.gradle.org/m2/"}
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-docker-plugin:3.6.2"
+    }
+}
+
+apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+task copyDockerFiles(type: Copy, dependsOn: "build"){
+    from "src/main/docker"
+    from "${project.buildDir}/libs"
+    from "src/main"
+    into {"${project.buildDir}/docker"}
+    include "Dockerfile"
+    include "*.sh"
+    include "${project.name}-${project.version}.jar"
+    include "python/**"
+}
+
+task buildDocker(type: DockerBuildImage, dependsOn: "copyDockerFiles"){
+    inputDir = project.file("${project.buildDir}/docker")
+    def target = ""
+    if(project.hasProperty('prodTag')){
+        target = "-"+project.property('prodTag')
+    }
+    tags = ["rlsoms-${project.name}" + target + ":latest".toString(),
+            "rlsoms-${project.name}" + target + ":${project.version}".toString()]
+}

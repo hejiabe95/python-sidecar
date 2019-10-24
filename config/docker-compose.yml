@@ -1,0 +1,11 @@
+version: '2'
+services:
+  py-sidecar:
+    image: rlsoms-py-sidecar
+    volumes:
+      - ./tmp:/tmp
+    environment:
+      - PYTHONUNBUFFERED = 0
+    ports:
+      - 8001:8001
+      - 3000:3000
