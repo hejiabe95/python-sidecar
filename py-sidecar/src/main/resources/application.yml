@@ -20,3 +20,7 @@ sidecar:
 spring:
   application:
     name: py-sidecar
+logging:
+  file: /logs/${spring.application.name}.log
+  level:
+    root: info

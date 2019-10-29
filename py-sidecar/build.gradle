@@ -1,6 +1,5 @@
 ///* 子模块项目名，jar名 */
 archivesBaseName = 'py-sidecar'
-apply from: project.file("gradle/docker.gradle")
 
 dependencies {
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-netflix-sidecar'

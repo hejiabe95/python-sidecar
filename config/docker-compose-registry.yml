@@ -1,0 +1,8 @@
+version: '2'
+services:
+  registry:
+    image: rlsoms-registry
+    volumes:
+      - ./tmp:/logs
+    ports:
+      - 8761:8761

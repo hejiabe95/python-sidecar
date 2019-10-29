@@ -1,11 +1,26 @@
 version: '2'
 services:
+  registry:
+    image: rlsoms-registry
+    volumes:
+      - ./tmp:/logs
+    ports:
+      - 8761:8761
   py-sidecar:
     image: rlsoms-py-sidecar
     volumes:
-      - ./tmp:/tmp
+      - ./tmp:/logs
     environment:
       - PYTHONUNBUFFERED = 0
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://registry:8761/eureka
     ports:
       - 8001:8001
       - 3000:3000
+  gateway:
+    image: rlsoms-gateway
+    volumes:
+      - ./tmp:/logs
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://registry:8761/eureka
+    ports:
+      - 8080:8080

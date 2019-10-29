@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Step1----------------startup the python program!"
-nohup python -u /python/main.py > /tmp/main.log 2>&1 &
+nohup python3 -u /python/main.py > /tmp/main.log 2>&1 &
 #ps aux |grep main |grep -q -v grep
 #PROCESS_1_STATUS=$?
 #echo "main status..."

@@ -29,6 +29,9 @@ subprojects {
     /* 依赖管理插件仍然是一个spring-boot-gradle-plugin传递依赖，所以无需在build.gradle配置中明确列出此依赖。 */
     apply plugin: 'io.spring.dependency-management' /* 依赖管理，用来传递spring的依赖 */
 
+    /* docker打包脚本 */
+    apply from: '../docker.gradle'
+
     group = 'com.pay'
     version = '0.0.1' /* 项目版本 */
     /* 指定jdk版本 */

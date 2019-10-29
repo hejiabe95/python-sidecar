@@ -18,7 +18,7 @@ task copyDockerFiles(type: Copy, dependsOn: "build"){
     into {"${project.buildDir}/docker"}
     include "Dockerfile"
     include "*.sh"
-    include "${project.name}-${project.version}.jar"
+    include "*.jar"
     include "python/**"
 }
 

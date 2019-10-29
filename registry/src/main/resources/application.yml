@@ -1,7 +1,11 @@
 eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
   client:
-    fetchRegistry: false
-    registerWithEureka: false
+    fetchRegistry: true
+    registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:${server.port}/eureka/
 server:
@@ -9,3 +13,12 @@ server:
 spring:
   application:
     name: registry
+logging:
+  file: /logs/${spring.application.name}.log
+  level:
+    root: info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

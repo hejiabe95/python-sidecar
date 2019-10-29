@@ -3,5 +3,8 @@ archivesBaseName = 'registry'
 
 dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+//    compile('org.springframework.boot:spring-boot-starter-security')
+
 }
 
